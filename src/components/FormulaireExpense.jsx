@@ -40,7 +40,7 @@ export default function FormulaireExpense({onSubmit}){
          
          <input  
          type="number"
-         placeholder="Amount"
+         placeholder="Cost"
          value={cost}
          onChange={(e)=> setCost(e.target.value)}
              required
