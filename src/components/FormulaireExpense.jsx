@@ -31,7 +31,7 @@ export default function FormulaireExpense({onSubmit}){
         <form onSubmit={submitExpense}>
             <input  
             type="text"
-            placeholder="name"
+            placeholder="name of the expense"
             value={name}
             onChange={(e)=> setName(e.target.value)}
                 required
@@ -40,7 +40,7 @@ export default function FormulaireExpense({onSubmit}){
          
          <input  
          type="number"
-         placeholder="Cost"
+         placeholder="how much it Costs"
          value={cost}
          onChange={(e)=> setCost(e.target.value)}
              required
