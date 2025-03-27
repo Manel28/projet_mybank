@@ -8,6 +8,8 @@ export default function Header(){
                     <li>Expenses</li>
                 </ul>
             </nav>
+           
+
         </header>
     );
 }

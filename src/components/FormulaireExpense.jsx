@@ -5,36 +5,41 @@ export default function FormulaireExpense({onSubmit}){
     const [name, setName]= useState('');
     const [category, setCategory]= useState('');
     const [cost, setCost]= useState('');
-    const [date, setDate]= useState('');
+    
     const submitExpense =(e)=>{ // cette fonction est appele quand on clique sur le boutton Add
         e.preventDefault();// et cette fonction va empecher le rechargement de mla page
       // je cree l objet expense  
-        const expense= {
+      const expenses = localStorage.getItem("expenses") ? JSON.parse(localStorage.getItem("expenses")) : []
+      const expense= {
             id: Date.now(),
             name,
             cost ,
             category,
-            date,
-
-
         };
+        expenses.push(expense) 
+      localStorage.setItem("expenses", JSON.stringify(expenses))
         
-        onSubmit(expense);// la on execute la fonction oneSubmit qui est fourni par App.jsx en lui passant l objet expense
+        
+        onSubmit(expense);// la on execute la fonction oneSubmit en lui passant l objet expense
         // et on reinisialise tt les champs en les vidants apres l ajout
         setName('');
         setCategory('');
         setCost('');
-        setDate('');
+        
     };
     //la partie html
     return(
         <form onSubmit={submitExpense}>
             <input  
             type="text"
+
             placeholder="name of the expense"
             value={name}
             onChange={(e)=> setName(e.target.value)}
+
                 required
+
+
          />
            
          
@@ -43,16 +48,9 @@ export default function FormulaireExpense({onSubmit}){
          placeholder="how much it Costs"
          value={cost}
          onChange={(e)=> setCost(e.target.value)}
-             required
+ required
 />
-             
-         <input  
-         type="date"
-         placeholder="date"
          
-         onChange={(e)=> setDate(e.target.value)}
-             required
-        />
              
          <input  
          type="text"
@@ -61,7 +59,7 @@ export default function FormulaireExpense({onSubmit}){
          onChange={(e)=> setCategory(e.target.value)}
              required
   />
-  <button type="submit">Add</button>   
+  <button type="submit">AddYourExpense</button>   
 
   </form>
   );
