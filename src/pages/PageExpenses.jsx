@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FormulaireExpense from "../components/formulaireExpense";
+import FormulaireExpense from "../components/FormulaireExpense";
 import { useEffect } from "react";
 export default function PageExpenses(){
     // on cree un etat expense pour stocker tte les expenses

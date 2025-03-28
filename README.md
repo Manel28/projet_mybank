@@ -4,7 +4,7 @@ Projet réalisé par **Manel SMAIL** dans le cadre de la formation CDA – 2025.
 
 
 
-# Objectif
+# Objectif du projet
 
 Créer une application React simple et fonctionnelle pour gérer ses dépenses personnelles.  
 Ce projet m’a permis de pratiquer plusieurs compétences comme :
@@ -28,6 +28,7 @@ Ce projet m’a permis de pratiquer plusieurs compétences comme :
 - Mise en place d’un `Header` et `Footer`
 - Affichage conditionnel de la liste des dépenses
 - Filtres par catégorie (fonctionnalité prévue)
+-App servie avec Nginx dans un conteneur Docke
 
 
 
@@ -37,7 +38,7 @@ Ce projet m’a permis de pratiquer plusieurs compétences comme :
 -  Git + GitHub
 -  localStorage
 -  CSS classique
-- 🐳 Docker (à venir)
+- 🐳 Docker 
 
 
 
@@ -51,8 +52,45 @@ npm run dev
 ```
 
 ---
+🐳 Utilisation avec Docker
 
-##  Notes personnelles
+# 1. Créer l’image Docker :
+
+```bash
+docker build -t mybank-app .
+```
+
+# 2. Lancer le conteneur :
+
+```bash
+docker run -d -p 8080:80 mybank-app
+```
+
+# 3. Ouvrir l’app dans le navigateur :
+
+👉 http://localhost:8080
+
+# Structure du projet
+
+```
+mybank/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   └── FormulaireExpense.jsx
+│   ├── pages/
+│   │   ├── PageExpenses.jsx
+│   │   └── PageCategories.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── Dockerfile
+├── package.json
+├── vite.config.js
+└── README.md
+
+## Notes personnelles
 
 Ce projet m’a permis de comprendre la logique d’un composant React :  
 comment il échange avec son parent, comment il modifie l’état (`useState`),  
@@ -65,8 +103,7 @@ La partie "filtrage par catégories" est en cours d’implémentation,
 et la conteneurisation Docker viendra compléter le projet.
 
 
-
-##  Auteure
+##Auteure
 
 **Manel SMAIL**  
 Formation CDA - 2025  
